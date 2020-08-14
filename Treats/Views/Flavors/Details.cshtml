@@ -4,8 +4,6 @@
 
 @model Treats.Models.Flavor;
 
-@using Treats.Models;
-
 <h1>Flavor Details</h1>
 
 <hr/>
@@ -18,14 +16,31 @@
 }
 else
 {
-  <h3>@Html.DisplayFor(model => model.FlavorName) Treats:</h3>
+  @if (User.Identity.IsAuthenticated)
+  {
+    <h3>@Html.DisplayFor(model => model.FlavorName) Treats:</h3>
 
-  <ul>
-    @foreach(var join in Model.Treats)
-    {
-      <li>@Html.ActionLink($"{join.Treat.TreatName}", "Details", new { id = join.Treat.TreatId })</li>
-    }
-  </ul>
+    <ul>
+      @foreach(var join in Model.Treats)
+      {
+        <li>@Html.ActionLink($"{join.Treat.TreatName}", "Details", new { id = join.Treat.TreatId })</li>
+        @using (Html.BeginForm("RemoveTreat", "Flavors"))
+        {
+          @Html.Hidden("joinId", @join.FlavorTreatId)
+          <input type="submit" value="Remove Treat" />
+        }
+      }
+    </ul>
+  }
+  else
+  {
+    <ul>
+      @foreach(var join in Model.Treats)
+      {
+        <li>@Html.ActionLink($"{join.Treat.TreatName}", "Details", new { id = join.Treat.TreatId })</li>
+      }
+    </ul>
+  }
 }
 
 @if (User.Identity.IsAuthenticated)
