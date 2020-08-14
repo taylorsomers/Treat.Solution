@@ -6,7 +6,7 @@ using Treats.Models;
 
 namespace Treats.Controllers
 {
-  public class TreatsController : Controller
+  public class FlavorsController : Controller
   {
     private readonly TreatsContext _db;
 
