@@ -84,5 +84,11 @@ namespace Treats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = joinEntry.FlavorId });
     }
+
+    public ActionResult Delete(int id)
+    {
+      var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      return View(thisFlavor);
+    }
   }
 }
