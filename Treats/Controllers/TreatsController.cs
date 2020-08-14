@@ -35,5 +35,13 @@ namespace Treats.Controllers
     {
       return View();
     }
+
+    [HttpPost]
+    public ActionResult Create(Treat treat)
+    {
+      _db.Treats.Add(treat);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
