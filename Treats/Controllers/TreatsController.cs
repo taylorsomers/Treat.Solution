@@ -24,5 +24,11 @@ namespace Treats.Controllers
 
       _db = db;
     }
+
+    public ActionResult Index()
+    {
+      List<Treat> model = _db.Treats.ToList();
+      return View(model);
+    }
   }
 }
