@@ -6,12 +6,12 @@ namespace Treats.Models
     {
         public Treat()
         {
-            this.Flavors = new HashSet<FlavorTreat>();
+          this.Flavors = new HashSet<FlavorTreat>();
         }
 
         public int TreatId { get; set; }
 
-        public string TreatDescription { get; set; }
+        public string TreatName { get; set; }
 
         public virtual ApplicationUser User { get; set; }
 
