@@ -1,0 +1,55 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Treats.Models.Treat;
+
+<h1>Treat Details</h1>
+
+<hr/>
+
+<h2>@Html.DisplayNameFor(model => model.TreatName): @Html.DisplayFor(model => model.TreatName)</h2>
+
+@if (Model.Flavors.Count == 0)
+{
+  <p>@Html.DisplayFor(model => model.TreatName) is not categorized with any Flavors yet.</p>
+}
+else
+{
+  @if (User.Identity.IsAuthenticated)
+  {
+    <h3>@Html.DisplayFor(model => model.TreatName) Flavors:</h3>
+
+    <ul>
+      @foreach(var join in Model.Flavors)
+      {
+        <li>@Html.ActionLink($"{join.Flavor.FlavorName}", "Details", new { id = join.Flavor.FlavorId })</li>
+        @using (Html.BeginForm("RemoveFlavor", "Treats"))
+        {
+          @Html.Hidden("joinId", @join.FlavorTreatId)
+          <input type="submit" value="Remove Flavor" />
+        }
+      }
+    </ul>
+  }
+  else
+  {
+    <ul>
+      @foreach(var join in Model.Flavors)
+      {
+        <li>@Html.ActionLink($"{join.Flavor.FlavorName}", "Details", new { id = join.Flavor.FlavorId })</li>
+      }
+    </ul>
+  }
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+  <p>@Html.ActionLink("Add a Flavor", "AddFlavor", new { id = Model.TreatId })</p>
+
+  <p>@Html.ActionLink("Edit Treat Info", "Edit", new { id = Model.TreatId })</p>
+
+  <p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</p>
+}
+
+<p>@Html.ActionLink("View All Treats", "Index")</p>
