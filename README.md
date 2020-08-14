@@ -46,7 +46,7 @@
 
   | Program Behavior | Example Behavior | Example Output | Met? (Y/N) |
   | ----------- | ----------- | ----------- | ----------- |
-  | Program will display a splash page allowing a user to view all Flavors, view all Treats, log into their account, or register an account. |  |  |  |
+  | Program will display a splash page allowing a user to view all Flavors, view all Treats, log into their account, or register an account. | N/A | "Pierre's Sweet & Savory Treats / Internal Flavor & Treat Database / View All Flavors / View All Treats / Log Into Your Account / Register an Account" | Y |
   | When the "View All Flavors" link is clicked and no Flavors have been entered into the database, the program will display a view with a message to that effect. |  |  |  |
   | When the "View All Treats" link is clicked and no Treats have been entered into the database, the program will display a view with a message to that effect. |  |  |  |
   | When the "Login" link is clicked, the program will display a view with a form for the user to enter their Email and Password to log in. |  |  |  |
