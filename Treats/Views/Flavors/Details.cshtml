@@ -1,0 +1,37 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Treats.Models.Flavor;
+
+@using Treats.Models;
+
+<h1>Flavor Details</h1>
+
+<hr/>
+
+<h2>@Html.DisplayNameFor(model => model.FlavorName): @Html.DisplayFor(model => model.FlavorName)</h2>
+
+@if(@Model.Treats.Count == 0)
+{
+  <p>There are no @Html.DisplayFor(model => model.FlavorName) Treats in the Database yet.</p>
+}
+else
+{
+  <h3>@Html.DisplayFor(model => model.FlavorName) Treats:</h3>
+
+  <ul>
+    @foreach(var join in Model.Treats)
+    {
+      <li>@Html.ActionLink($"{join.Treat.TreatName}", "Details", new { id = join.Treat.TreatId })</li>
+    }
+  </ul>
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+  <p>@Html.ActionLink("Edit Flavor Info", "Edit", new { id = Model.FlavorId })</p>
+  <p>@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId })</p>
+}
+
+<p>@Html.ActionLink("View All Flavors", "Index")</p>
