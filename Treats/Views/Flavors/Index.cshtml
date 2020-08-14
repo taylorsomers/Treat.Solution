@@ -18,13 +18,16 @@ else
   {
     @foreach (Flavor flavor in Model)
     {
-      <li>@Html.ActionLink($"{Flavor.FlavorName}", "Details", new { id = flavor.FlavorId })</li>
+      <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", new { id = flavor.FlavorId })</li>
     }
 
     <p>@Html.ActionLink("Add New Flavor", "Create")</p>
   }
   else
   {
-    <li>@Html.ActionLink($"{Flavor.FlavorName}", "Details", new { id = flavor.FlavorId })</li>
+    @foreach (Flavor flavor in Model)
+    {
+      <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", new { id = flavor.FlavorId })</li>
+    }
   }
 }
