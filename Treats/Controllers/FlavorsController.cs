@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,6 +56,13 @@ namespace Treats.Controllers
       _db.Entry(flavor).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = flavor.FlavorId });
+    }
+
+    public ActionResult AddTreat(int id)
+    {
+      var thisFlavor = _db.Flavors.FirstOrDefault(flavors => flavors.FlavorId == id);
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");
+      return View(thisFlavor);
     }
   }
 }
