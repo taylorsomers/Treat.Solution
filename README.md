@@ -70,7 +70,7 @@
 
 | Location : Message |  Situation  | Resolved (Y/N) |  Bug Resolution Strategy |
 | ----------- | ----------- | ----------- | ----------- |
-
+| Treats/Controllers/FlavorsController.cs : "error CS1520: Method must have a return type" | Build error with message that database constructor must have a return type, though this is not required in other Controller files" | Y | Rename misnamed controller from "TreatsController to FlavorsController in Treats/Controllers/FlavorsController.cs file. |
 
 
 ## Support & Contact Details
