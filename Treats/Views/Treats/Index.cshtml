@@ -1,0 +1,42 @@
+@{
+  Layout = "_Layout";
+}
+
+@model List<Treats.Models.Treat>;
+
+@using Treats.Models;
+
+<h1>All Treats</h1>
+
+@if (Model.Count == 0)
+{
+  <h3>No Treats have been added to the Database yet!</h3>
+
+  @if (User.Identity.IsAuthenticated)
+  {
+    <p>@Html.ActionLink("Add a New Treat", "Create")</p>
+  }
+}
+else
+{
+  @if (User.Identity.IsAuthenticated)
+  {
+    <ul>
+      @foreach (Treat treat in Model)
+      {
+        <li>@Html.ActionLink($"{treat.TreatName}", "Details", new { id = treat.TreatId })</li>
+      }
+    </ul>
+
+    <p>@Html.ActionLink("Add a New Treat", "Create")</p>
+  }
+  else
+  {
+    <ul>
+      @foreach (Treat treat in Model)
+      {
+        <li>@Html.ActionLink($"{treat.TreatName}", "Details", new { id = treat.TreatId })</li>
+      }
+    </ul>
+  }
+}
