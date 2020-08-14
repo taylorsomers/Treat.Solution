@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 
 namespace Treats.Controllers
 {
-  [Authorize]
   public class TreatsController : Controller
   {
     private readonly TreatsContext _db;
