@@ -10,7 +10,7 @@ namespace Treats.Controllers
   {
     private readonly SignInManager<ApplicationUser> _signInManager;
 
-    private readonly ToDoListContext _db;
+    private readonly TreatsContext _db;
 
     private readonly UserManager<ApplicationUser> _userManager;
 
