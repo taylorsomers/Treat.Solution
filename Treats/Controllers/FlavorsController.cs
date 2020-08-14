@@ -25,5 +25,13 @@ namespace Treats.Controllers
     {
       return View();
     }
+
+    [HttpPost]
+    public ActionResult Create(Flavor flavor)
+    {
+      _db.Flavors.Add(flavor);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
