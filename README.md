@@ -41,6 +41,178 @@
 
   ### Database Setup Instructions
 
+  CREATE DATABASE  IF NOT EXISTS `taylor_somers`;
+  USE `taylor_somers`;
+  -- MySQL dump 10.13  Distrib 8.0.19, for Win64 (x86_64)
+  --
+  -- Host: 127.0.0.1    Database: taylor_somers
+  -- ------------------------------------------------------
+  -- Server version	8.0.21
+
+  --
+  -- Table structure for table `__efmigrationshistory`
+  --
+
+  DROP TABLE IF EXISTS `__efmigrationshistory`;
+  CREATE TABLE `__efmigrationshistory` (
+    `MigrationId` varchar(95) NOT NULL,
+    `ProductVersion` varchar(32) NOT NULL,
+    PRIMARY KEY (`MigrationId`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+  --
+  -- Table structure for table `aspnetroleclaims`
+  --
+
+  DROP TABLE IF EXISTS `aspnetroleclaims`;
+  CREATE TABLE `aspnetroleclaims` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `RoleId` varchar(255) NOT NULL,
+    `ClaimType` longtext,
+    `ClaimValue` longtext,
+    PRIMARY KEY (`Id`),
+    KEY `IX_AspNetRoleClaims_RoleId` (`RoleId`),
+    CONSTRAINT `FK_AspNetRoleClaims_AspNetRoles_RoleId` FOREIGN KEY (`RoleId`) REFERENCES `aspnetroles` (`Id`) ON DELETE CASCADE
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+  --
+  -- Table structure for table `aspnetroles`
+  --
+
+  DROP TABLE IF EXISTS `aspnetroles`;
+  CREATE TABLE `aspnetroles` (
+    `Id` varchar(255) NOT NULL,
+    `Name` varchar(256) DEFAULT NULL,
+    `NormalizedName` varchar(256) DEFAULT NULL,
+    `ConcurrencyStamp` longtext,
+    PRIMARY KEY (`Id`),
+    UNIQUE KEY `RoleNameIndex` (`NormalizedName`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+  --
+  -- Table structure for table `aspnetuserclaims`
+  --
+
+  DROP TABLE IF EXISTS `aspnetuserclaims`;
+  CREATE TABLE `aspnetuserclaims` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `UserId` varchar(255) NOT NULL,
+    `ClaimType` longtext,
+    `ClaimValue` longtext,
+    PRIMARY KEY (`Id`),
+    KEY `IX_AspNetUserClaims_UserId` (`UserId`),
+    CONSTRAINT `FK_AspNetUserClaims_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+  --
+  -- Table structure for table `aspnetuserlogins`
+  --
+
+  DROP TABLE IF EXISTS `aspnetuserlogins`;
+  CREATE TABLE `aspnetuserlogins` (
+    `LoginProvider` varchar(255) NOT NULL,
+    `ProviderKey` varchar(255) NOT NULL,
+    `ProviderDisplayName` longtext,
+    `UserId` varchar(255) NOT NULL,
+    PRIMARY KEY (`LoginProvider`,`ProviderKey`),
+    KEY `IX_AspNetUserLogins_UserId` (`UserId`),
+    CONSTRAINT `FK_AspNetUserLogins_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+  --
+  -- Table structure for table `aspnetuserroles`
+  --
+
+  DROP TABLE IF EXISTS `aspnetuserroles`;
+  CREATE TABLE `aspnetuserroles` (
+    `UserId` varchar(255) NOT NULL,
+    `RoleId` varchar(255) NOT NULL,
+    PRIMARY KEY (`UserId`,`RoleId`),
+    KEY `IX_AspNetUserRoles_RoleId` (`RoleId`),
+    CONSTRAINT `FK_AspNetUserRoles_AspNetRoles_RoleId` FOREIGN KEY (`RoleId`) REFERENCES `aspnetroles` (`Id`) ON DELETE CASCADE,
+    CONSTRAINT `FK_AspNetUserRoles_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+  --
+  -- Table structure for table `aspnetusers`
+  --
+
+  DROP TABLE IF EXISTS `aspnetusers`;
+  CREATE TABLE `aspnetusers` (
+    `Id` varchar(255) NOT NULL,
+    `UserName` varchar(256) DEFAULT NULL,
+    `NormalizedUserName` varchar(256) DEFAULT NULL,
+    `Email` varchar(256) DEFAULT NULL,
+    `NormalizedEmail` varchar(256) DEFAULT NULL,
+    `EmailConfirmed` bit(1) NOT NULL,
+    `PasswordHash` longtext,
+    `SecurityStamp` longtext,
+    `ConcurrencyStamp` longtext,
+    `PhoneNumber` longtext,
+    `PhoneNumberConfirmed` bit(1) NOT NULL,
+    `TwoFactorEnabled` bit(1) NOT NULL,
+    `LockoutEnd` datetime(6) DEFAULT NULL,
+    `LockoutEnabled` bit(1) NOT NULL,
+    `AccessFailedCount` int NOT NULL,
+    PRIMARY KEY (`Id`),
+    UNIQUE KEY `UserNameIndex` (`NormalizedUserName`),
+    KEY `EmailIndex` (`NormalizedEmail`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+  --
+  -- Table structure for table `aspnetusertokens`
+  --
+
+  DROP TABLE IF EXISTS `aspnetusertokens`;
+  CREATE TABLE `aspnetusertokens` (
+    `UserId` varchar(255) NOT NULL,
+    `LoginProvider` varchar(255) NOT NULL,
+    `Name` varchar(255) NOT NULL,
+    `Value` longtext,
+    PRIMARY KEY (`UserId`,`LoginProvider`,`Name`),
+    CONSTRAINT `FK_AspNetUserTokens_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+  --
+  -- Table structure for table `flavors`
+  --
+
+  DROP TABLE IF EXISTS `flavors`;
+  CREATE TABLE `flavors` (
+    `FlavorId` int NOT NULL AUTO_INCREMENT,
+    `FlavorName` longtext,
+    PRIMARY KEY (`FlavorId`)
+  ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+  --
+  -- Table structure for table `flavortreat`
+  --
+
+  DROP TABLE IF EXISTS `flavortreat`;
+  CREATE TABLE `flavortreat` (
+    `FlavorTreatId` int NOT NULL AUTO_INCREMENT,
+    `FlavorId` int NOT NULL,
+    `TreatId` int NOT NULL,
+    PRIMARY KEY (`FlavorTreatId`),
+    KEY `IX_FlavorTreat_FlavorId` (`FlavorId`),
+    KEY `IX_FlavorTreat_TreatId` (`TreatId`),
+    CONSTRAINT `FK_FlavorTreat_Flavors_FlavorId` FOREIGN KEY (`FlavorId`) REFERENCES `flavors` (`FlavorId`) ON DELETE CASCADE,
+    CONSTRAINT `FK_FlavorTreat_Treats_TreatId` FOREIGN KEY (`TreatId`) REFERENCES `treats` (`TreatId`) ON DELETE CASCADE
+  ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+  --
+  -- Table structure for table `treats`
+  --
+
+  DROP TABLE IF EXISTS `treats`;
+  CREATE TABLE `treats` (
+    `TreatId` int NOT NULL AUTO_INCREMENT,
+    `TreatName` longtext,
+    `UserId` varchar(255) DEFAULT NULL,
+    PRIMARY KEY (`TreatId`),
+    KEY `IX_Treats_UserId` (`UserId`),
+    CONSTRAINT `FK_Treats_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE RESTRICT
+  ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 ## Specifications
 
