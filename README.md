@@ -219,23 +219,23 @@
   | Program Behavior | Example Behavior | Example Output | Met? (Y/N) |
   | ----------- | ----------- | ----------- | ----------- |
   | Program will display a splash page allowing a user to view all Flavors, view all Treats, log into their account, or register an account. | N/A | "Pierre's Sweet & Savory Treats / Internal Flavor & Treat Database / View All Flavors / View All Treats / Log Into Your Account / Register an Account" | Y |
-  | When the "View All Flavors" link is clicked and no Flavors have been entered into the database, the program will display a view with a message to that effect. |  |  |  |
-  | When the "View All Treats" link is clicked and no Treats have been entered into the database, the program will display a view with a message to that effect. |  |  |  |
-  | When the "Login" link is clicked, the program will display a view with a form for the user to enter their Email and Password to log in. |  |  |  |
-  | When the "Register an Account" link is clicked, the program will display a view with a form for the user to enter their Email and choose a password in order to create an account. |  |  |  |
-  | When the "View All Flavors" link is clicked and at least one Flavor has been entered into the database, the program will display a view that lists all inputted Flavors. |  |  |  |
-  | When the "View All Treats" link is clicked and at least one Treat has been entered into the database, the program will display a view that lists all inputted Treats. |  |  |  |
-  | When the name of a Flavor in the Flavors index view is clicked and no Treats have been associated with that Flavor, the program will display a Details view with a message to that effect. |  |  |  |
-  | When the name of a Treat in the Treats index view is clicked and no Flavors have been associated with that Treat, the program will display a Detail view with a message to that effect. |  |  |  |
-  | Program will display an "Add Treat" link in the Flavors/Details view that will allow a user to associate a Treat with the Flavor that is displayed. |  |  |  |
-  | Program will display an "Add Flavor" link in the Treats/Details view that will allow a user to associate a Flavor with the Treat that is displayed. |  |  |  |
-  | When the name of a Flavor in the Flavors index view is clicked and at least one Treat has been associated with that Flavor, the program will display a Flavors/Details view listing all Treats that have been so associated. |  |  |  |
-  | When the name of a Treat in the Treats index view is clicked and at least one Flavor has been associated with that Treat, the program will display a Treats/Details view listing all Flavors that have been so associated. |  |  |  |
-  | Program will display an "Edit Flavor" link in the Flavors/Details view that, when clicked, will allow the user to change the name of the Flavor. |  |  |  |
-  | Program will display an "Edit Treat" link in the Treats/Details view that, when clicked, will allow the user to change the name of the Treat. |  |  |  |
-  | Program will display a "Delete" button for each Flavor in the Flavors/Index view that, when clicked, will remove the Flavor from the database. |  |  |  |
-  | Program will display a "Delete" button for each Treat in the Treats/Index view that, when clicked, will remove the Treat from the database. |  |  |  |
-  | Program will only allow the user to create, edit, add, remove, or delete Flavors and Treats if the user is logged in. |  |  |  |
+  | When the "View All Flavors" link is clicked and no Flavors have been entered into the database, the program will display a view with a message to that effect. |  |  | Y |
+  | When the "View All Treats" link is clicked and no Treats have been entered into the database, the program will display a view with a message to that effect. |  |  | Y |
+  | When the "Login" link is clicked, the program will display a view with a form for the user to enter their Email and Password to log in. |  |  | Y |
+  | When the "Register an Account" link is clicked, the program will display a view with a form for the user to enter their Email and choose a password in order to create an account. |  |  | Y |
+  | When the "View All Flavors" link is clicked and at least one Flavor has been entered into the database, the program will display a view that lists all inputted Flavors. |  |  | Y |
+  | When the "View All Treats" link is clicked and at least one Treat has been entered into the database, the program will display a view that lists all inputted Treats. |  |  | Y |
+  | When the name of a Flavor in the Flavors index view is clicked and no Treats have been associated with that Flavor, the program will display a Details view with a message to that effect. |  |  | Y |
+  | When the name of a Treat in the Treats index view is clicked and no Flavors have been associated with that Treat, the program will display a Detail view with a message to that effect. |  |  | Y |
+  | Program will display an "Add Treat" link in the Flavors/Details view that will allow a user to associate a Treat with the Flavor that is displayed. |  |  | Y |
+  | Program will display an "Add Flavor" link in the Treats/Details view that will allow a user to associate a Flavor with the Treat that is displayed. |  |  | Y |
+  | When the name of a Flavor in the Flavors index view is clicked and at least one Treat has been associated with that Flavor, the program will display a Flavors/Details view listing all Treats that have been so associated. |  |  | Y |
+  | When the name of a Treat in the Treats index view is clicked and at least one Flavor has been associated with that Treat, the program will display a Treats/Details view listing all Flavors that have been so associated. |  |  | Y |
+  | Program will display an "Edit Flavor" link in the Flavors/Details view that, when clicked, will allow the user to change the name of the Flavor. |  |  | Y |
+  | Program will display an "Edit Treat" link in the Treats/Details view that, when clicked, will allow the user to change the name of the Treat. |  |  | Y |
+  | Program will display a "Delete" button for each Flavor in the Flavors/Index view that, when clicked, will remove the Flavor from the database. |  |  | Y |
+  | Program will display a "Delete" button for each Treat in the Treats/Index view that, when clicked, will remove the Treat from the database. |  |  | Y |
+  | Program will only allow the user to create, edit, add, remove, or delete Flavors and Treats if the user is logged in. |  |  | Y |
 
 
 ## Known Bugs
